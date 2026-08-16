@@ -154,6 +154,9 @@ async function handlePreview(request, requestUrl, response) {
 
 const server = http.createServer(async (request, response) => {
   const requestUrl = new URL(request.url, `http://${request.headers.host || "localhost"}`);
+  if (requestUrl.pathname === "/health") {
+    return sendJson(response, 200, { status: "ok" });
+  }
   if (requestUrl.pathname === "/api/videos") return handleVideos(requestUrl, response);
   if (requestUrl.pathname === "/api/preview") return handlePreview(request, requestUrl, response);
 
@@ -177,3 +180,12 @@ const server = http.createServer(async (request, response) => {
 server.listen(port, () => {
   console.log(`Film Roulette działa na http://localhost:${port}`);
 });
+
+function shutDown(signal) {
+  console.log(`Odebrano ${signal}, zamykanie serwera…`);
+  server.close(() => process.exit(0));
+  setTimeout(() => process.exit(1), 10000).unref();
+}
+
+process.on("SIGTERM", () => shutDown("SIGTERM"));
+process.on("SIGINT", () => shutDown("SIGINT"));
