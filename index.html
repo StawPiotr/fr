@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Film Roulette</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="page-shell">
+      <section class="role-picker" aria-labelledby="role-title">
+        <div>
+          <p class="eyebrow">Film roulette</p>
+          <h1 id="role-title">Kto wybiera kategorię i kto wybiera film?</h1>
+        </div>
+        <button class="button button--secondary" id="draw-roles" type="button">Losuj</button>
+        <p class="role-result" id="role-result" aria-live="polite">
+          Kliknij „Losuj”, aby przydzielić role.
+        </p>
+      </section>
+
+      <section class="wheel-section" aria-labelledby="wheel-title">
+        <div class="section-heading">
+          <p class="eyebrow">Koło kategorii</p>
+          <h2 id="wheel-title">Wybierz grupy biorące udział w losowaniu</h2>
+        </div>
+
+        <fieldset class="filters" id="category-filters">
+          <legend class="sr-only">Grupy kategorii</legend>
+          <label class="filter filter--basic">
+            <input type="checkbox" value="basic_categories" checked />
+            <span>Basic categories</span>
+          </label>
+          <label class="filter filter--bdsm">
+            <input type="checkbox" value="BDSM" checked />
+            <span>BDSM</span>
+          </label>
+          <label class="filter filter--femdom">
+            <input type="checkbox" value="femdom" />
+            <span>Femdom</span>
+          </label>
+          <label class="filter filter--ffm">
+            <input type="checkbox" value="ffm" checked />
+            <span>FFM</span>
+          </label>
+        </fieldset>
+
+        <label class="wheel-toggle">
+          <input id="show-wheel" type="checkbox" />
+          <span>Pokaż koło fortuny</span>
+        </label>
+
+        <div id="wheel-visual" hidden>
+          <div class="wheel-wrap">
+            <div class="wheel-pointer" aria-hidden="true"></div>
+            <canvas id="category-wheel" width="900" height="900" aria-label="Koło fortuny z kategoriami"></canvas>
+            <div class="wheel-hub" aria-hidden="true">5</div>
+          </div>
+          <p class="category-count" id="category-count" aria-live="polite"></p>
+        </div>
+
+        <button class="button button--primary" id="draw-categories" type="button">
+          Losuj 5 kategorii
+        </button>
+
+        <section class="results" aria-labelledby="results-title">
+          <h2 id="results-title">Wylosowane kategorie</h2>
+          <ol id="category-results" class="result-list">
+            <li class="result-placeholder">Tutaj pojawi się pięć wyników.</li>
+          </ol>
+        </section>
+
+        <section class="videos" id="videos-section" aria-labelledby="videos-title" hidden>
+          <div class="videos-heading">
+            <div>
+              <p class="eyebrow">Wybrana kategoria</p>
+              <h2 id="videos-title">Propozycje filmów</h2>
+            </div>
+            <a
+              class="button button--pornhub"
+              id="pornhub-search"
+              href="https://www.pornhub.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Szukaj na Pornhubie
+            </a>
+          </div>
+          <p class="video-status" id="video-status" aria-live="polite"></p>
+          <div class="video-grid" id="video-grid"></div>
+        </section>
+      </section>
+    </main>
+
+    <script src="app.js" defer></script>
+  </body>
+</html>
