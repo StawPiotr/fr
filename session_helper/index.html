@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#090a0f" />
+    <title>Sesja — Film Roulette</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <nav class="site-nav" aria-label="Nawigacja główna">
+      <a class="is-active" href="/session_helper/" aria-current="page">Sesja</a>
+      <a href="/film_roulette/">Film</a>
+    </nav>
+
+    <main class="page-shell">
+      <section class="session-panel" aria-labelledby="session-title">
+        <header class="session-heading">
+          <p class="eyebrow">Session helper</p>
+          <h1 id="session-title">Wybierz klimat sesji</h1>
+          <p class="session-instruction" id="session-instruction" aria-live="polite">
+            Osoba 1: wybierz najbardziej preferowany klimat.
+          </p>
+        </header>
+
+        <div class="session-controls" aria-label="Wybór klimatu sesji">
+          <button class="session-control" type="button" data-climate="Vanilla" aria-pressed="false">Vanilla</button>
+          <button class="session-control" type="button" data-climate="BDSM" aria-pressed="false">BDSM</button>
+          <button class="session-control" type="button" data-climate="Femdom" aria-pressed="false">Femdom</button>
+          <button class="session-control" type="button" data-climate="Blowjob" aria-pressed="false">Blowjob</button>
+        </div>
+
+        <div class="session-actions">
+          <button class="button button--primary" id="confirm-choice" type="button" disabled>Zatwierdź wybór</button>
+          <button class="button button--secondary" id="reset-choices" type="button">Resetuj swój wybór</button>
+        </div>
+
+        <fieldset class="session-options" id="session-options">
+          <legend class="sr-only">Opcje wyboru</legend>
+          <label class="session-option">
+            <input id="share-preview" type="checkbox" />
+            <span>Udostępnij podgląd</span>
+          </label>
+          <label class="session-option">
+            <input id="solo-mode" type="checkbox" />
+            <span>Solo</span>
+          </label>
+        </fieldset>
+
+        <section class="session-results" id="session-results" aria-labelledby="session-results-title" hidden>
+          <h2 id="session-results-title">Potwierdzenie wyborów</h2>
+          <div id="session-results-list"></div>
+          <p class="session-outcome" id="session-outcome" aria-live="polite" hidden></p>
+        </section>
+
+        <section class="session-follow-up" id="session-follow-up" aria-labelledby="follow-up-title" hidden>
+          <h2 id="follow-up-title">Dodatkowe wybory</h2>
+          <form id="follow-up-form"></form>
+        </section>
+
+        <button class="button button--secondary session-reset-all" id="reset-session" type="button" hidden>Resetuj całą sesję</button>
+
+        <section class="session-sliders" id="slider-phase" aria-labelledby="slider-title" hidden>
+          <h2 id="slider-title">Preferencje intensywności</h2>
+          <p class="session-instruction" id="slider-instruction">Osoba 1: ustaw i zatwierdź swoje preferencje.</p>
+          <div id="slider-fields"></div>
+          <button class="button button--primary" id="confirm-sliders" type="button">Zatwierdź preferencje</button>
+        </section>
+      </section>
+    </main>
+
+    <script src="/session_helper/app.js" defer></script>
+  </body>
+</html>

@@ -4,9 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Film Roulette</title>
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="/styles.css" />
   </head>
   <body>
+    <nav class="site-nav" aria-label="Nawigacja główna">
+      <a href="/session_helper/">Sesja</a>
+      <a class="is-active" href="/film_roulette/" aria-current="page">Film</a>
+    </nav>
     <main class="page-shell">
       <section class="role-picker" aria-labelledby="role-title">
         <div>
@@ -27,6 +31,10 @@
 
         <fieldset class="filters" id="category-filters">
           <legend class="sr-only">Grupy kategorii</legend>
+          <label class="filter filter--performer">
+            <input type="checkbox" value="performer_attributes" />
+            <span>Performer attributes</span>
+          </label>
           <label class="filter filter--basic">
             <input type="checkbox" value="basic_categories" checked />
             <span>Basic categories</span>
@@ -92,6 +100,6 @@
       </section>
     </main>
 
-    <script src="app.js" defer></script>
+    <script src="/film_roulette/app.js" defer></script>
   </body>
 </html>

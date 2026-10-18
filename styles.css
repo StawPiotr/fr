@@ -32,6 +32,44 @@ body {
   font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
+.site-nav {
+  display: flex;
+  width: min(1120px, calc(100% - 32px));
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin: 0 auto;
+  padding: 22px 0 0;
+}
+
+.site-nav a {
+  min-width: 110px;
+  padding: 12px 22px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.045);
+  color: var(--muted);
+  font-weight: 800;
+  text-align: center;
+  text-decoration: none;
+  transition: color 160ms ease, background 160ms ease, border-color 160ms ease;
+}
+
+.site-nav a:hover,
+.site-nav a:focus-visible,
+.site-nav a.is-active {
+  border-color: rgba(255, 77, 121, 0.55);
+  background: rgba(255, 77, 121, 0.13);
+  color: var(--text);
+}
+
+.site-nav a:focus-visible,
+.session-control:focus-visible,
+.session-slider input:focus-visible {
+  outline: 3px solid rgba(255, 209, 102, 0.8);
+  outline-offset: 4px;
+}
+
 button,
 input {
   font: inherit;
@@ -45,7 +83,8 @@ input {
 
 .role-picker,
 .wheel-section,
-.results {
+.results,
+.session-panel {
   border: 1px solid var(--border);
   background: var(--surface);
   box-shadow: var(--shadow);
@@ -150,6 +189,330 @@ input:focus-visible {
   margin: 20px auto 0;
   background: linear-gradient(135deg, var(--accent), var(--accent-strong));
   box-shadow: 0 12px 30px rgba(255, 36, 95, 0.28);
+}
+
+.session-panel {
+  max-width: 940px;
+  margin: 0 auto;
+  padding: clamp(24px, 5vw, 48px);
+  border-radius: 30px;
+}
+
+.session-heading {
+  margin-bottom: 32px;
+  text-align: center;
+}
+
+.session-heading h1 {
+  margin-inline: auto;
+}
+
+.session-instruction {
+  min-height: 1.5em;
+  margin: 16px 0 0;
+  color: var(--muted);
+  font-size: 1.05rem;
+  font-weight: 650;
+}
+
+.session-controls {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+  margin-bottom: 34px;
+}
+
+.session-control {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  min-height: 54px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: linear-gradient(135deg, #38394b, #262734);
+  color: var(--text);
+  font-weight: 800;
+  cursor: pointer;
+  transition: transform 160ms ease, filter 160ms ease;
+}
+
+.session-control:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.12);
+}
+
+.session-control--primary {
+  border: 0;
+  background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+  box-shadow: 0 12px 30px rgba(255, 36, 95, 0.2);
+}
+
+.session-control.is-shared-preference {
+  border-color: rgba(255, 209, 102, 0.75);
+  box-shadow: inset 0 0 0 1px rgba(255, 209, 102, 0.18);
+}
+
+.session-control.is-shared-ban {
+  border-color: rgba(255, 77, 121, 0.5);
+  background: rgba(255, 77, 121, 0.08);
+  color: #aaa0a5;
+  cursor: not-allowed;
+  opacity: 0.7;
+  text-decoration: line-through;
+}
+
+.climate-badge {
+  color: var(--gold);
+  font-size: 0.68rem;
+  font-weight: 700;
+  line-height: 1.1;
+  text-decoration: none;
+}
+
+.is-shared-ban .climate-badge {
+  color: #ff9bb2;
+}
+
+.session-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+}
+
+.session-actions .button {
+  min-width: 190px;
+  margin: 0;
+}
+
+.session-options {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px 28px;
+  margin: 22px 0 0;
+  padding: 0;
+  border: 0;
+}
+
+.session-option {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  min-height: 42px;
+  color: var(--muted);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.session-option input {
+  width: 18px;
+  height: 18px;
+  margin: 0;
+  accent-color: var(--accent);
+}
+
+.session-option input:focus-visible {
+  outline: 3px solid rgba(255, 209, 102, 0.8);
+  outline-offset: 3px;
+}
+
+.session-option input:disabled {
+  cursor: not-allowed;
+}
+
+.session-results {
+  margin-top: 32px;
+  padding: 24px;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.035);
+}
+
+.session-results h2 {
+  margin-bottom: 18px;
+  text-align: center;
+}
+
+.session-outcome {
+  margin: 20px 0 0;
+  padding: 18px;
+  border: 1px solid rgba(255, 209, 102, 0.35);
+  border-radius: 14px;
+  background: rgba(255, 209, 102, 0.1);
+  color: var(--gold);
+  font-size: clamp(1.15rem, 3vw, 1.65rem);
+  font-weight: 850;
+  text-align: center;
+}
+
+.session-follow-up {
+  margin-top: 24px;
+  padding: clamp(22px, 4vw, 34px);
+  border: 1px solid var(--border);
+  border-radius: 22px;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.session-follow-up > h2 {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.follow-up-group {
+  min-width: 0;
+  margin: 20px 0;
+  padding: 0;
+  border: 0;
+}
+
+.follow-up-group legend {
+  width: 100%;
+  margin-bottom: 12px;
+  color: var(--gold);
+  font-size: 1.15rem;
+  font-weight: 800;
+  text-align: center;
+}
+
+.follow-up-choices {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 12px;
+}
+
+.follow-up-choice {
+  position: relative;
+  display: grid;
+  min-height: 64px;
+  place-items: center;
+  padding: 12px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: linear-gradient(135deg, #38394b, #262734);
+  color: var(--text);
+  font-weight: 800;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 160ms ease, border-color 160ms ease, background 160ms ease;
+}
+
+.follow-up-choice:hover {
+  transform: translateY(-2px);
+  border-color: rgba(255, 77, 121, 0.55);
+}
+
+.follow-up-choice:has(input:checked) {
+  border-color: transparent;
+  background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+  box-shadow: 0 12px 30px rgba(255, 36, 95, 0.2);
+}
+
+.follow-up-choice input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+
+.follow-up-choice:has(input:focus-visible) {
+  outline: 3px solid rgba(255, 209, 102, 0.8);
+  outline-offset: 4px;
+}
+
+.session-follow-up > h2 {
+  margin: 0 0 20px;
+  color: var(--text);
+  text-align: center;
+}
+
+.follow-up-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.follow-up-actions .button {
+  min-width: 190px;
+  margin: 0;
+}
+
+.session-reset-all {
+  display: block;
+  margin: 24px auto 0;
+}
+
+#session-results-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 14px;
+}
+
+.session-result-card {
+  padding: 18px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.045);
+}
+
+.session-result-card h3 {
+  margin: 0 0 14px;
+  color: var(--gold);
+}
+
+.session-result-card p {
+  margin: 8px 0 0;
+  color: var(--muted);
+}
+
+.session-result-card strong {
+  color: var(--text);
+}
+
+.session-sliders {
+  display: grid;
+  gap: 16px;
+}
+
+.session-slider {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 12px 20px;
+  align-items: center;
+  padding: 18px 20px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.045);
+  color: var(--text);
+  font-weight: 750;
+}
+
+.session-slider output {
+  color: var(--gold);
+  font-variant-numeric: tabular-nums;
+}
+
+.session-slider input {
+  grid-column: 1 / -1;
+  width: 100%;
+  margin: 0;
+  accent-color: var(--accent);
+  cursor: pointer;
+}
+
+.session-status {
+  min-height: 48px;
+  margin: 22px 0 0;
+  padding: 13px 16px;
+  border: 1px solid rgba(255, 209, 102, 0.22);
+  border-radius: 14px;
+  background: rgba(255, 209, 102, 0.08);
+  color: #fff3cc;
 }
 
 .wheel-section {
@@ -463,6 +826,15 @@ input:focus-visible {
 }
 
 @media (max-width: 720px) {
+  .site-nav {
+    width: min(100% - 20px, 1120px);
+    padding-top: 14px;
+  }
+
+  .site-nav a {
+    flex: 1;
+  }
+
   .page-shell {
     width: min(100% - 20px, 1120px);
     padding-top: 24px;
@@ -471,6 +843,14 @@ input:focus-visible {
   .role-picker {
     grid-template-columns: 1fr;
     padding: 24px;
+  }
+
+  .session-controls {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .session-panel {
+    padding-inline: 18px;
   }
 
   .role-picker .button {

@@ -5,11 +5,17 @@ const path = require("node:path");
 const port = Number(process.env.PORT) || 8000;
 const root = __dirname;
 const allowedFiles = new Map([
-  ["/", "index.html"],
-  ["/index.html", "index.html"],
+  ["/", "film_roulette/index.html"],
+  ["/film_roulette", "film_roulette/index.html"],
+  ["/film_roulette/", "film_roulette/index.html"],
+  ["/film_roulette/index.html", "film_roulette/index.html"],
+  ["/film_roulette/app.js", "film_roulette/app.js"],
+  ["/film_roulette/category_list.json", "film_roulette/category_list.json"],
+  ["/session_helper", "session_helper/index.html"],
+  ["/session_helper/", "session_helper/index.html"],
+  ["/session_helper/index.html", "session_helper/index.html"],
+  ["/session_helper/app.js", "session_helper/app.js"],
   ["/styles.css", "styles.css"],
-  ["/app.js", "app.js"],
-  ["/category_list.json", "category_list.json"],
 ]);
 const contentTypes = {
   ".html": "text/html; charset=utf-8",

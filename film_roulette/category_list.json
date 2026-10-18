@@ -1,38 +1,40 @@
 {
   "performer_attributes": [
-    "athletic",
-    "big-breasts",
-    "big-butt",
-    "black-hair",
-    "blonde",
-    "brunette",
-    "cosplay",
-    "curly-hair",
-    "fishnet-stockings",
-    "glasses",
-    "hairy",
-    "high-heels",
-    "latex",
-    "leather",
-    "lingerie",
-    "long-hair",
-    "mature",
-    "milf",
-    "muscular",
-    "natural-breasts",
-    "petite",
-    "piercings",
-    "plus-size",
-    "redhead",
-    "shaved",
-    "short",
-    "short-hair",
-    "small-breasts",
-    "stockings",
-    "tall",
-    "tattoos",
-    "tights",
-    "uniform"
+    "girl-athletic",
+    "girl-asian",
+    "girl-big-breasts",
+    "girl-big-butt",
+    "girl-black-hair",
+    "girl-blonde",
+    "girl-brunette",
+    "girl-cosplay",
+    "girl-curly-hair",
+    "girl-fishnet-stockings",
+    "girl-glasses",
+    "girl-hairy",
+    "girl-high-heels",
+    "girl-latex",
+    "girl-latina",
+    "girl-lingerie",
+    "girl-long-hair",
+    "girl-nurse",
+    "girl-milf",
+    "girl-muscular",
+    "girl-maid",
+    "girl-natural-breasts",
+    "girl-petite",
+    "girl-piercings",
+    "girl-plus-size",
+    "girl-redhead",
+    "girl-shaved",
+    "girl-short",
+    "girl-short-hair",
+    "girl-small-breasts",
+    "girl-stockings",
+    "girl-tall",
+    "girl-tattoos",
+    "girl-tights",
+    "girl-white"
   ],
   "basic_categories": [
     {
@@ -42,6 +44,10 @@
     {
       "name": "anal",
       "description": "Scena skupiona na stymulacji lub penetracji analnej."
+    },
+    {
+      "name": "anal-insertion",
+      "description": ""
     },
     {
       "name": "blowjob",
@@ -472,8 +478,8 @@
       "description": "Kobieca dominacja oparta na zawstydzaniu, poniżających poleceniach lub słownej kontroli."
     },
     {
-      "name": "femdom-verbal-humiliation",
-      "description": "Dominująca kobieta wykorzystuje obraźliwe lub zawstydzające wypowiedzi do podkreślenia hierarchii."
+      "name": "femdom-urethral-insertion",
+      "description": ""
     },
     {
       "name": "femdom-feminization",

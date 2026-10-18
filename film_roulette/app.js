@@ -31,11 +31,14 @@ function getSelectedCategories() {
   return filterInputs
     .filter((input) => input.checked)
     .flatMap((input) =>
-      (categoryData[input.value] ?? []).map((category) => ({
-        ...category,
-        group: input.value,
-        label: cleanName(category.name),
-      })),
+      (categoryData[input.value] ?? []).map((entry) => {
+        const category = typeof entry === "string" ? { name: entry, description: "" } : entry;
+        return {
+          ...category,
+          group: input.value,
+          label: cleanName(category.name),
+        };
+      }),
     );
 }
 
@@ -270,7 +273,7 @@ async function showVideos(categoryName) {
 
 async function loadCategories() {
   try {
-    const response = await fetch("category_list.json");
+    const response = await fetch("/film_roulette/category_list.json");
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
     categoryData = await response.json();
     renderWheel();

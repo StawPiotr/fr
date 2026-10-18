@@ -1,6 +1,6 @@
 # Film Roulette
 
-Aplikacja Node.js losująca kategorie i wyświetlająca propozycje filmów dla wybranej kategorii.
+Aplikacja Node.js z dwiema stronami: Film Roulette oraz Session Helper. Film Roulette losuje kategorie i wyświetla propozycje filmów dla wybranej kategorii.
 
 ## Uruchomienie lokalne
 
@@ -10,7 +10,12 @@ Wymagany jest Node.js 20 lub nowszy.
 npm start
 ```
 
-Strona będzie dostępna domyślnie pod adresem `http://localhost:8000`.
+Strony będą dostępne domyślnie pod adresami:
+
+- Film Roulette: `http://localhost:8000/film_roulette/`
+- Sesja: `http://localhost:8000/session_helper/`
+
+Adres główny (`http://localhost:8000`) otwiera Film Roulette. Obie strony korzystają ze wspólnego arkusza stylów w katalogu głównym.
 
 ## Wdrożenie na Railway
 
@@ -26,6 +31,10 @@ Endpoint `/health` służy Railway do sprawdzenia, czy nowa wersja aplikacji uru
 
 ## Pliki wdrożeniowe
 
+- `film_roulette/` — strona Film Roulette oraz jej skrypt i dane kategorii,
+- `session_helper/` — strona ustawień sesji oraz jej skrypt,
+- `styles.css` — wspólne style obu stron,
+- `server.js` — serwer i endpointy API,
 - `railway.json` — konfiguracja budowania, uruchamiania i healthchecku,
 - `package.json` — komenda startowa i wymagana wersja Node.js,
 - `.gitignore` — pliki pomijane przez Git i wdrożenie.
